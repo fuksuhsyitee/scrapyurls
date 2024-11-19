@@ -50,3 +50,43 @@ SEARCH_ENGINES = {
 
 
 
+
+# crawler/settings.py
+from utils.config import ConfigManager
+
+config = ConfigManager()
+
+BOT_NAME = 'web_crawler'
+
+SPIDER_MODULES = ['crawler.spiders']
+NEWSPIDER_MODULE = 'crawler.spiders'
+
+# Respect robots.txt rules
+ROBOTSTXT_OBEY = True
+
+# Configure maximum concurrent requests
+CONCURRENT_REQUESTS = config.search_settings.get('max_concurrent_requests', 16)
+
+# Configure delay between requests
+DOWNLOAD_DELAY = config.rate_limits['delay_between_requests']
+
+# Enable or disable middlewares
+DOWNLOADER_MIDDLEWARES = {
+    'crawler.middlewares.CustomRetryMiddleware': 543,
+    'crawler.middlewares.ProxyMiddleware': 744,
+}
+
+# Configure item pipelines
+ITEM_PIPELINES = {
+    'crawler.pipelines.MongoDBPipeline': 300,
+}
+
+# Enable and configure HTTP caching
+HTTPCACHE_ENABLED = True
+HTTPCACHE_EXPIRATION_SECS = 86400
+HTTPCACHE_DIR = 'httpcache'
+HTTPCACHE_IGNORE_HTTP_CODES = []
+HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
+
+# Set logging level
+LOG_LEVEL = config.logging_settings['level']
