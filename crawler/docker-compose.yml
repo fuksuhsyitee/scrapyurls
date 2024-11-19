@@ -1,0 +1,23 @@
+# docker-compose.yml
+version: '3.8'
+
+services:
+  crawler:
+    build: .
+    environment:
+      - MONGODB_URI=mongodb://mongodb:27017
+      - MONGODB_DATABASE=crawler_db
+      - MONGODB_COLLECTION=urls
+    depends_on:
+      - mongodb
+    command: ["scrapy", "crawl", "multi_search", "-a", "keywords=technology,programming"]
+
+  mongodb:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+
+volumes:
+  mongodb_data:
