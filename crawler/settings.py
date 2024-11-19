@@ -11,7 +11,7 @@ USER_AGENT = 'high_performance_crawler (+http://www.yourdomain.com)'
 ROBOTSTXT_OBEY = True
 
 # Configure maximum concurrent requests
-CONCURRENT_REQUESTS = 32
+CONCURRENT_REQUESTS = config.search_settings.get('max_concurrent_requests', 16)
 CONCURRENT_REQUESTS_PER_DOMAIN = 16
 CONCURRENT_REQUESTS_PER_IP = 16
 
