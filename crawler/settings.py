@@ -56,6 +56,8 @@ SEARCH_ENGINES = {
     'yahoo': 'https://search.yahoo.com/search?p={}'
 }
 
+# Set logging level
+LOG_LEVEL = config.logging_settings['level']
 
 
 
@@ -94,5 +96,3 @@ ITEM_PIPELINES = {
 
 
 
-# Set logging level
-LOG_LEVEL = config.logging_settings['level']
