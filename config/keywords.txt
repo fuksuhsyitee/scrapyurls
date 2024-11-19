@@ -1,0 +1,8 @@
+# config/keywords.txt
+technology
+machine learning
+cybersecurity
+python programming
+data science
+artificial intelligence
+cloud computing
