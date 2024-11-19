@@ -17,12 +17,16 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy project files
 COPY . .
 
+# Create config directory
+RUN mkdir -p /app/config
+
 # Create a non-root user and switch to it
-RUN useradd -m crawler
+RUN useradd -m crawler && chown -R crawler:crawler /app
 USER crawler
 
 # Set environment variables
 ENV PYTHONUNBUFFERED=1
+ENV CRAWLER_CONFIG=/app/config/crawler_config.yml
 
 # Run the crawler
-ENTRYPOINT ["scrapy", "crawl", "multi_search"]
+ENTRYPOINT ["python", "-m", "crawler.run"]
