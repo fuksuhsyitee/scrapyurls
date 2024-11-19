@@ -1,4 +1,8 @@
 # crawler/settings.py
+from utils.config import ConfigManager
+
+config = ConfigManager()
+
 BOT_NAME = 'high_performance_crawler'
 
 SPIDER_MODULES = ['crawler.spiders']
@@ -62,9 +66,6 @@ LOG_LEVEL = config.logging_settings['level']
 
 
 # crawler/settings.py
-from utils.config import ConfigManager
-
-config = ConfigManager()
 
 BOT_NAME = 'web_crawler'
 
