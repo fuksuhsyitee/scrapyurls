@@ -25,7 +25,7 @@ DOWNLOAD_DELAY = config.rate_limits['delay_between_requests']
 # Enable or disable downloader middlewares
 DOWNLOADER_MIDDLEWARES = {
     'crawler.middlewares.RotateUserAgentMiddleware': 400,
-    ' crawler.middlewares.CustomRetryMiddleware': 543,
+    'crawler.middlewares.CustomRetryMiddleware': 543,
     'crawler.middlewares.ProxyMiddleware': 410,
     'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware': None,
 }
