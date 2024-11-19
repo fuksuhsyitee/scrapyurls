@@ -8,3 +8,4 @@ beautifulsoup4>=4.9.3
 aiohttp>=3.8.0
 scrapy-mongodb>=0.13.0
 scrapy-proxies>=0.4
+PyYAML>=6.0
