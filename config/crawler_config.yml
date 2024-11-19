@@ -1,0 +1,29 @@
+# config/crawler_config.yml
+crawler:
+  keywords:
+    - technology
+    - programming
+    - cybersecurity
+    - "machine learning"
+  search_settings:
+    max_pages_per_keyword: 5
+    max_depth: 3
+    follow_links: true
+    
+  proxy_settings:
+    enabled: true
+    rotation_policy: "per_request"  # or "per_domain"
+    
+  rate_limits:
+    requests_per_second: 2
+    requests_per_domain: 10
+    delay_between_requests: 1
+
+mongodb:
+  uri: "mongodb://mongodb:27017"
+  database: "crawler_db"
+  collection: "urls"
+
+logging:
+  level: "INFO"
+  file: "crawler.log"
