@@ -5,12 +5,11 @@ services:
   crawler:
     build: .
     environment:
-      - MONGODB_URI=mongodb://mongodb:27017
-      - MONGODB_DATABASE=crawler_db
-      - MONGODB_COLLECTION=urls
+      - CRAWLER_CONFIG=/app/config/crawler_config.yml
+    volumes:
+      - ./config:/app/config
     depends_on:
       - mongodb
-    command: ["scrapy", "crawl", "multi_search", "-a", "keywords=technology,programming"]
 
   mongodb:
     image: mongo:latest
