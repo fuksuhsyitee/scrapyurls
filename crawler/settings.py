@@ -64,17 +64,20 @@ NEWSPIDER_MODULE = 'crawler.spiders'
 # Respect robots.txt rules
 ROBOTSTXT_OBEY = True
 
+# Enable or disable middlewares
+DOWNLOADER_MIDDLEWARES = {
+    'crawler.middlewares.CustomRetryMiddleware': 543,
+    'crawler.middlewares.ProxyMiddleware': 744,
+}
+
+
+
 # Configure maximum concurrent requests
 CONCURRENT_REQUESTS = config.search_settings.get('max_concurrent_requests', 16)
 q
 # Configure delay between requests
 DOWNLOAD_DELAY = config.rate_limits['delay_between_requests']
 
-# Enable or disable middlewares
-DOWNLOADER_MIDDLEWARES = {
-    'crawler.middlewares.CustomRetryMiddleware': 543,
-    'crawler.middlewares.ProxyMiddleware': 744,
-}
 
 # Configure item pipelines
 ITEM_PIPELINES = {
