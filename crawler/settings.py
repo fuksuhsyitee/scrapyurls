@@ -47,3 +47,6 @@ SEARCH_ENGINES = {
     'duckduckgo': 'https://duckduckgo.com/html/?q={}',
     'yahoo': 'https://search.yahoo.com/search?p={}'
 }
+
+
+
