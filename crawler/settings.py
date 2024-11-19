@@ -21,6 +21,7 @@ DOWNLOAD_DELAY = 1
 # Enable or disable downloader middlewares
 DOWNLOADER_MIDDLEWARES = {
     'crawler.middlewares.RotateUserAgentMiddleware': 400,
+    ' crawler.middlewares.CustomRetryMiddleware': 543,
     'crawler.middlewares.ProxyMiddleware': 410,
     'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware': None,
 }
@@ -66,7 +67,7 @@ ROBOTSTXT_OBEY = True
 
 # Enable or disable middlewares
 DOWNLOADER_MIDDLEWARES = {
-    'crawler.middlewares.CustomRetryMiddleware': 543,
+
     'crawler.middlewares.ProxyMiddleware': 744,
 }
 
