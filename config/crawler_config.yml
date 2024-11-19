@@ -1,10 +1,6 @@
 # config/crawler_config.yml
 crawler:
-  keywords:
-    - technology
-    - programming
-    - cybersecurity
-    - "machine learning"
+  keywords_file: "config/keywords.txt"  # Path to keywords file
   search_settings:
     max_pages_per_keyword: 5
     max_depth: 3
@@ -12,7 +8,7 @@ crawler:
     
   proxy_settings:
     enabled: true
-    rotation_policy: "per_request"  # or "per_domain"
+    rotation_policy: "per_request"
     
   rate_limits:
     requests_per_second: 2
