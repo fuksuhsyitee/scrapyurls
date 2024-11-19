@@ -37,6 +37,13 @@ MONGODB_URI = 'mongodb://localhost:27017'
 MONGODB_DATABASE = 'crawler_db'
 MONGODB_COLLECTION = 'urls'
 
+# Enable and configure HTTP caching
+HTTPCACHE_ENABLED = True
+HTTPCACHE_EXPIRATION_SECS = 86400
+HTTPCACHE_DIR = 'httpcache'
+HTTPCACHE_IGNORE_HTTP_CODES = []
+HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
+
 # Proxy settings
 PROXY_LIST = []
 PROXY_MODE = 0  # 0 = Every requests have different proxy, 1 = Take only one proxy from the list and assign it to every requests
@@ -85,12 +92,7 @@ ITEM_PIPELINES = {
     'crawler.pipelines.MongoDBPipeline': 300,
 }
 
-# Enable and configure HTTP caching
-HTTPCACHE_ENABLED = True
-HTTPCACHE_EXPIRATION_SECS = 86400
-HTTPCACHE_DIR = 'httpcache'
-HTTPCACHE_IGNORE_HTTP_CODES = []
-HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
+
 
 # Set logging level
 LOG_LEVEL = config.logging_settings['level']
