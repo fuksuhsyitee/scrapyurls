@@ -20,7 +20,7 @@ CONCURRENT_REQUESTS_PER_DOMAIN = 16
 CONCURRENT_REQUESTS_PER_IP = 16
 
 # Configure a delay for requests for the same website
-DOWNLOAD_DELAY = 1
+DOWNLOAD_DELAY = config.rate_limits['delay_between_requests']
 
 # Enable or disable downloader middlewares
 DOWNLOADER_MIDDLEWARES = {
@@ -62,38 +62,4 @@ SEARCH_ENGINES = {
 
 # Set logging level
 LOG_LEVEL = config.logging_settings['level']
-
-
-
-# crawler/settings.py
-
-BOT_NAME = 'web_crawler'
-
-SPIDER_MODULES = ['crawler.spiders']
-NEWSPIDER_MODULE = 'crawler.spiders'
-
-# Respect robots.txt rules
-ROBOTSTXT_OBEY = True
-
-# Enable or disable middlewares
-DOWNLOADER_MIDDLEWARES = {
-
-    'crawler.middlewares.ProxyMiddleware': 744,
-}
-
-
-
-# Configure maximum concurrent requests
-CONCURRENT_REQUESTS = config.search_settings.get('max_concurrent_requests', 16)
-q
-# Configure delay between requests
-DOWNLOAD_DELAY = config.rate_limits['delay_between_requests']
-
-
-# Configure item pipelines
-ITEM_PIPELINES = {
-    'crawler.pipelines.MongoDBPipeline': 300,
-}
-
-
 
